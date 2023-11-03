@@ -1,9 +1,9 @@
 {
-  "name": "f23wb60muppala",
+  "name": "s23db60muppala",
   "version": "0.0.0",
   "private": true,
   "author": "Teja Kumar Muppala",
-  "description": "The purpose of this assignment is to become familiar with using pug templates to dynamically generate web pages on the server side.",
+  "description": "The purpose of this assignment is to become familiar with using MongoDB and Mangoose to dynamically generate web pages on the server side.",
   "scripts": {
     "start": "node ./bin/www"
   },
