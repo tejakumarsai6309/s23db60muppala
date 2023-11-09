@@ -2,11 +2,16 @@ extends layout
 
 block content
   h1= title
-
-  .row
-    each vehicle in results
-      .col-3 
-        ul
-          li vehicle Brand: #{vehicle.Brand}
-          li vehicle Color: #{vehicle.Color}
-          li vehicle Year: #{vehicle.Year}
+  - const items = results;
+  .container-fluid
+    .row
+      each vehicle,index in items
+        div(class="col-sm-2" onclick=`buy(${index})`)
+          h3 #{vehicle.Brand}
+          p Color: #{vehicle.Color}
+          p Year: #{vehicle.Year}
+  
+  script.
+    function buy(index) {
+        alert(`You purchased : ${index}`)
+    }          
