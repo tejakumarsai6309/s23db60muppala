@@ -2,17 +2,11 @@ extends layout
 
 block content
   h1= title
-  - const results = [{ Brand: 'Tesla', Color: 'Black', Year: 2023 },{ Brand: 'Ferrari', Color: 'Red', Year: 2021 },{ Brand: 'Mustang', Color: 'Green', Year: 2021 }]
 
-  .container-fluid
-    .row
-      each vehicle,index in results
-        div(class="col-sm-2" onclick=`buy(${index})`)
-          h3 #{vehicle.Brand}
-          p Color: #{vehicle.Color}
-          p Year: #{vehicle.Year}
-  script.
-    function buy(index) {
-        alert(`You purchased : ${index}`)
-    }        
-  
+  .row
+    each vehicle in results
+      .col-3 
+        ul
+          li vehicle Brand: #{vehicle.Brand}
+          li vehicle Color: #{vehicle.Color}
+          li vehicle Year: #{vehicle.Year}
