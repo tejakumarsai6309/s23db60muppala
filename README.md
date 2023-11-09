@@ -1,4 +1,4 @@
-# s23wb60muppala
+# s23db60muppala
 The purpose of this assignment is to become familiar with using MongoDB and Mangoose to dynamically generate web pages.
 <br>
 # Teja Kumar Muppala
