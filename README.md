@@ -1,5 +1,5 @@
 # s23db60muppala
-The purpose of this assignment is to become familiar with MongoDB and Mangoose to dynamically generate web pages.
+The purpose of this assignment is to become familiar while using MongoDB and Mangoose to dynamically generate web pages.
 <br>
 # Teja Kumar Muppala
 
