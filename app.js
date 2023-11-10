@@ -19,33 +19,33 @@ console.log("Connection to DB succeeded")});
 
 var vehicle = require("./models/vehicle");
 
-// We can seed the collection if needed on server start
-async function recreateDB(){
-// Delete everything
-await vehicle.deleteMany();
-let instance1 = new vehicle({Brand:"Tesla", Color:'Black',Year:2023});
-instance1.save().then(doc=>{
-console.log("First object saved")}
-).catch(err=>{
-console.error(err)
-});
+// // We can seed the collection if needed on server start
+//  async function recreateDB(){
+// // Delete everything
+// await vehicle.deleteMany();
+//  let instance1 = new vehicle({Brand:"Tesla", Color:'Black',Year:2023});
+//  instance1.save().then(doc=>{
+//  console.log("First object saved")}
+//  ).catch(err=>{
+// console.error(err)
+//  });
 
-let instance2 = new vehicle({Brand:"Ferrari", Color:'Red',Year:2021});
-instance2.save().then(doc=>{
-console.log("Second object saved")}
-).catch(err=>{
-console.error(err)
-});
+//  let instance2 = new vehicle({Brand:"Ferrari", Color:'Red',Year:2021});
+//  instance2.save().then(doc=>{
+//  console.log("Second object saved")}
+//  ).catch(err=>{
+//  console.error(err)
+//  });
 
-let instance3 = new vehicle({Brand:"Mustang", Color:'Green',Year:2021});
-instance3.save().then(doc=>{
-console.log("Third object saved")}
-).catch(err=>{
-console.error(err)
-});
-}
-let reseed = true;
-if (reseed) {recreateDB();}
+//  let instance3 = new vehicle({Brand:"Mustang", Color:'Green',Year:2021});
+//  instance3.save().then(doc=>{
+//  console.log("Third object saved")}
+//  ).catch(err=>{
+//  console.error(err)
+//  });
+//  }
+//  let reseed = true;
+//  if (reseed) {recreateDB();}
 
 
 
