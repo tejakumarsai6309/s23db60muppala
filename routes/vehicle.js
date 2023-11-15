@@ -5,5 +5,5 @@ var router = express.Router();
 router.get('/', vehicle_controlers.vehicle_view_all_Page );
 module.exports = router;
 
-/* GET detail costume page */
+/* GET detail vehicle page */
 router.get('/detail', vehicle_controlers.vehicle_view_one_Page);

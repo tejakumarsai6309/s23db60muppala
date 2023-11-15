@@ -3,7 +3,7 @@ extends layout
 block content
   h1= title
   - let vehicleid = toShow._id
-  - let vehicle_Brand = toShow.Brand
+  - let vehicleBrand = toShow.Brand
   - let vehicleColor = toShow.Color
   - let vehicleYear = toShow.Year
 
@@ -13,7 +13,7 @@ block content
       div #{vehicleid}
     div.row
       div(class='vehicleAttr mr-3') vehicle Brand is:
-      div #{vehicle_Brand}
+      div #{vehicleBrand}
     div.row
       div(class='vehicleAttr mr-3') vehicle Color is:
       div #{vehicleColor}
