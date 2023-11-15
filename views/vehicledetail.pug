@@ -3,20 +3,20 @@ extends layout
 block content
   h1= title
   - let vehicleid = toShow._id
-  - let vehicle_type = toShow.vehicle_type
-  - let vehiclecost = toShow.cost
-  - let vehiclesize = toShow.size
+  - let vehicle_Brand = toShow.Brand
+  - let vehicleColor = toShow.Color
+  - let vehicleYear = toShow.Year
 
   div
     div.row
       div(class='vehicleAttr mr-3') vehicle ID is:
       div #{vehicleid}
     div.row
-      div(class='vehicleAttr mr-3') vehicle Type is:
-      div #{vehicle_type}
+      div(class='vehicleAttr mr-3') vehicle Brand is:
+      div #{vehicle_Brand}
     div.row
-      div(class='vehicleAttr mr-3') vehicle Size is:
-      div #{vehiclesize}
+      div(class='vehicleAttr mr-3') vehicle Color is:
+      div #{vehicleColor}
     div.row
-      div(class='vehicleAttr mr-3') vehicle Cost is:
-      div #{vehiclecost}
+      div(class='vehicleAttr mr-3') vehicle Year is:
+      div #{vehicleYear}
