@@ -2,21 +2,24 @@ extends layout
 
 block content
   h1= title
-  - let vehicleid = toShow._id
-  - let vehicleBrand = toShow.Brand
-  - let vehicleColor = toShow.Color
-  - let vehicleYear = toShow.Year
+  if (toShow == null)
+    h2 No instance to delete
+  else
+    - let vehicleid = toShow._id
+    - let vehicleBrand = toShow.Brand
+    - let vehicleColor = toShow.Color
+    - let vehicleYear = toShow.Year
 
-  div
-    div.row
-      div(class='vehicleAttr mr-3') vehicle ID is:
-      div #{vehicleid}
-    div.row
-      div(class='vehicleAttr mr-3') vehicle Brand is:
-      div #{vehicleBrand}
-    div.row
-      div(class='vehicleAttr mr-3') vehicle Color is:
-      div #{vehicleColor}
-    div.row
-      div(class='vehicleAttr mr-3') vehicle Year is:
-      div #{vehicleYear}
+    div
+      div.row
+        div(class='vehicleAttr mr-3') vehicle ID is:
+        div #{vehicleid}
+      div.row
+        div(class='vehicleAttr mr-3') vehicle Brand is:
+        div #{vehicleBrand}
+      div.row
+        div(class='vehicleAttr mr-3') vehicle Color is:
+        div #{vehicleColor}
+      div.row
+        div(class='vehicleAttr mr-3') vehicle Year is:
+        div #{vehicleYear}
