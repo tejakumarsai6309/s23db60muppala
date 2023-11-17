@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
 
 require('dotenv').config();
@@ -16,6 +18,24 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connectionerror:'));
 db.once("open", function(){
 console.log("Connection to DB succeeded")});
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+  Account.findOne({ username: username })
+  .then(function (user){
+  if (err) { return done(err); }
+  if (!user) {
+  return done(null, false, { message: 'Incorrect username.' });
+  }
+  if (!user.validPassword(password)) {
+  return done(null, false, { message: 'Incorrect password.' });
+  }
+  return done(null, user);
+  })
+  .catch(function(err){
+  return done(err)
+  })
+  })
+  )
 
 var vehicle = require("./models/vehicle");
 
@@ -55,7 +75,13 @@ var vehicleRouter = require('./routes/vehicle');
 var boardRouter = require('./routes/board');
 var chooseRouter = require('./routes/choose');
 var resourceRouter = require('./routes/resource');
-
+// passport config
+// Use the existing connection
+// The Account model
+var Account =require('./models/account');
+passport.use(new LocalStrategy(Account.authenticate()));
+passport.serializeUser(Account.serializeUser());
+passport.deserializeUser(Account.deserializeUser());
 
 
 
@@ -71,6 +97,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(require('express-session')({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: false
+  }));
+  app.use(passport.initialize());
+  app.use(passport.session());
+  
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

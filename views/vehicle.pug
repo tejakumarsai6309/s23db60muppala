@@ -2,16 +2,18 @@ extends layout
 
 block content
   h1= title
-  - const items = results;
-  .container-fluid
-    .row
-      each vehicle,index in items
-        div(class="col-sm-2" onclick=`buy(${index})`)
-          h3 #{vehicle.Brand}
-          p Color: #{vehicle.Color}
-          p Year: #{vehicle.Year}
-  
+  - let items = results;
+  each item in items
+    - let destination = `dispatch("/vehicle/update?id=${item._id}")`
+    div
+      p Brand - #{item.Brand}
+      p Color - #{item.Color}
+      p Year - #{item.Year}
+      button.btn(class="btn-primary ml-1", onclick=destination) Update
+      br
+      br
+
   script.
-    function buy(index) {
-        alert(`You purchased : ${index}`)
-    }          
+    function dispatch(path){
+      window.location.href = path
+    }
