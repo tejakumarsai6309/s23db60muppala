@@ -2,18 +2,26 @@ extends layout
 
 block content
   h1= title
+
+  a.btn.btn-primary(href="/vehicle/create") Create vehicle
+
   - let items = results;
   each item in items
-    - let destination = `dispatch("/vehicle/update?id=${item._id}")`
+    - let vehicleupdate = `dispatch("/vehicle/update?id=${item._id}")`
+    - let vehicledetail = `dispatch("/vehicle/detail?id=${item._id}")`
+    - let vehicledelete = `dispatch("/vehicle/delete?id=${item._id}")`
+
     div
       p Brand - #{item.Brand}
       p Color - #{item.Color}
       p Year - #{item.Year}
-      button.btn(class="btn-primary ml-1", onclick=destination) Update
+      button.btn.btn-primary.ml-1(onclick=vehicleupdate) Update
+      button.btn.btn-secondary.ml-1(onclick=vehicledetail) Detail
+      button.btn.btn-danger.ml-1(onclick=vehicledelete) Delete
       br
       br
 
   script.
     function dispatch(path){
-      window.location.href = path
+      window.location.href = path;
     }
